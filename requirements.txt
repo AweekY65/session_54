@@ -1,0 +1,2 @@
+# tracelet uses only the Python standard library (>=3.10).
+# No third-party dependencies and no external services.

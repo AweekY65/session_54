@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tracelet"
+version = "1.0.0"
+description = "Local, file-and-memory based distributed trace collection and analysis"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.scripts]
+tracelet = "tracelet.cli:main"
+
+[tool.setuptools]
+packages = ["tracelet"]
