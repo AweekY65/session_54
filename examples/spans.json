@@ -1,0 +1,79 @@
+[
+  {
+    "trace_id": "t-demo",
+    "span_id": "s1",
+    "parent_id": "",
+    "service": "gateway",
+    "name": "GET /checkout",
+    "start_us": 1000000,
+    "end_us": 1000600,
+    "status": "OK",
+    "attributes": {"http.method": "GET", "http.route": "/checkout", "env": "dev"}
+  },
+  {
+    "trace_id": "t-demo",
+    "span_id": "s2",
+    "parent_id": "s1",
+    "service": "auth",
+    "name": "verify_token",
+    "start_us": 1000020,
+    "end_us": 1000080,
+    "status": "OK",
+    "attributes": {"component": "jwt"}
+  },
+  {
+    "trace_id": "t-demo",
+    "span_id": "s3",
+    "parent_id": "s1",
+    "service": "checkout",
+    "name": "create_order",
+    "start_us": 1000090,
+    "end_us": 1000510,
+    "status": "OK",
+    "attributes": {"order_id": 42}
+  },
+  {
+    "trace_id": "t-demo",
+    "span_id": "s4",
+    "parent_id": "s3",
+    "service": "inventory",
+    "name": "reserve_items",
+    "start_us": 1000110,
+    "end_us": 1000230,
+    "status": "OK",
+    "attributes": {"db.system": "sqlite"}
+  },
+  {
+    "trace_id": "t-demo",
+    "span_id": "s5",
+    "parent_id": "s3",
+    "service": "payment",
+    "name": "charge_card",
+    "start_us": 1000250,
+    "end_us": 1000450,
+    "status": "OK",
+    "attributes": {"provider": "stub-pay"}
+  },
+  {
+    "trace_id": "t-demo",
+    "span_id": "s6",
+    "parent_id": "s3",
+    "service": "notify",
+    "name": "send_email",
+    "start_us": 1000260,
+    "end_us": 1000400,
+    "status": "OK",
+    "attributes": {"channel": "email"}
+  },
+  {
+    "trace_id": "t-demo",
+    "span_id": "s7",
+    "parent_id": "s5",
+    "service": "payment-db",
+    "name": "update_ledger",
+    "start_us": 1000280,
+    "end_us": 1000370,
+    "status": "OK",
+    "attributes": {"db.system": "sqlite"}
+  }
+]
